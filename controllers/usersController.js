@@ -6,6 +6,7 @@ class UserController {
         const data = await db.User.findAll();
         res.status(200).json(data);
     }
+    
     async show(req, res) {
         const keys = Object.keys(req.query);
         if (!keys[0]) {
