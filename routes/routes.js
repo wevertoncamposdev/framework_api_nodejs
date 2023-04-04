@@ -1,6 +1,7 @@
 module.exports = (express, sequelize) => {
   const router = express.Router();
   const user = require('./users')(router);
+  const dev = require('./dev')(router, sequelize);
 
   /**
   res.download()	Solicita que seja efetuado o download de um arquivo
@@ -15,6 +16,7 @@ module.exports = (express, sequelize) => {
    */
 
   router.use('/user', user);
+  router.use('/adm', dev);
 
   router.get('/', (req, res) => {
     res.json(

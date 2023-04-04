@@ -6,7 +6,7 @@ module.exports = (router) => {
         .get('/user/show', userController.show)
         .post('/user', userController.create)
         .put('/user', userController.update)
-        .delete('/user', userController.delete)
+        .delete('/user', userController.destroy)
 
     return router;
 }
