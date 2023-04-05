@@ -5,8 +5,8 @@ const permissionsMiddleware = (req, res, next) => {
         return res.status(401).json({ error: 'Unauthorized' });
     }
 
-    if (req.method.toLocaleLowerCase() in req.user.permissions
-        && req.user.permissions[req.method.toLocaleLowerCase()] === true) {
+    if (req.method.toLocaleLowerCase() in req.user.permissions.method
+        && req.user.permissions.method[req.method.toLocaleLowerCase()] === true) {
         // prossegue para a próxima rota se o usuário tiver as permissões necessárias
         next();
     } else {

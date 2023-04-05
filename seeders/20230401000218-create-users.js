@@ -21,13 +21,16 @@ module.exports = {
         email: faker.internet.email(),
         password: bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
         permissions: JSON.stringify({
-          "router": 'localhost:3000/' + faker.internet.domainWord(),
-          "read": faker.datatype.boolean(),
-          "write": faker.datatype.boolean(),
-          "get": faker.datatype.boolean(),
-          "post": faker.datatype.boolean(),
-          "put": faker.datatype.boolean(),
-          "delete": faker.datatype.boolean()
+          "method": {
+            "get": faker.datatype.boolean(),
+            "post": faker.datatype.boolean(),
+            "put": faker.datatype.boolean(),
+            "delete": faker.datatype.boolean()
+          },
+          "services":{
+            "post": faker.datatype.boolean(),
+            "organization": faker.datatype.boolean(),
+          }
         }),
         createdAt: new Date(),
         updatedAt: new Date()
