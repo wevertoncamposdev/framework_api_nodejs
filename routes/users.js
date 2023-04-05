@@ -2,11 +2,11 @@ module.exports = (router) => {
     const userController = require('../controllers/usersController');
 
     router
-        .get('/user', userController.index)
-        .get('/user/show', userController.show)
-        .post('/user', userController.create)
-        .put('/user', userController.update)
-        .delete('/user', userController.destroy)
+        .get('/users', userController.index)
+        .get('/users/show', userController.show)
+        .post('/users', userController.create)
+        .put('/users', userController.update)
+        .delete('/users', userController.destroy)
 
     return router;
 }

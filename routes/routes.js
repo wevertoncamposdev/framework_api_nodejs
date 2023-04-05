@@ -1,7 +1,8 @@
 module.exports = (express, sequelize) => {
   const router = express.Router();
-  const user = require('./users')(router);
   const dev = require('./dev')(router, sequelize);
+  const user = require('./users')(router);
+  const trash = require('./trash')(router);
 
   /**
   res.download()	Solicita que seja efetuado o download de um arquivo
@@ -15,9 +16,10 @@ module.exports = (express, sequelize) => {
   res.sendStatus()	Configura o código do status de resposta e envia a sua representação em sequência de caracteres como o corpo de resposta.
    */
 
+  router.use('/adm', dev); // Acess ADM Server
   router.use('/user', user);
-  router.use('/adm', dev);
-
+  router.use('/trash', trash);
+  
   router.get('/', (req, res) => {
     res.json(
       {

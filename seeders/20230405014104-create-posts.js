@@ -8,24 +8,22 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     const data = [];
     const users = await queryInterface.sequelize.query('SELECT id FROM users');
-    for (let i = 0; i < 32; i++) {
+    for (let i = 0; i < 120; i++) {
       data.push({
         id: uuidv4(),
         userId:users[0][Math.floor(Math.random() * users[0].length)].id, // Seleciona um id aleatório da lista de ids de usuários
-        name: faker.company.name(),
-        address: faker.address.streetAddress(),
-        city: faker.address.cityName(),
-        states: faker.address.state(),
-        email: faker.internet.email(),
-        phone: faker.phone.number(),
+        title: faker.lorem.lines(1),
+        body: faker.lorem.paragraphs(),
+        tag: faker.color.rgb(),
         createdAt: new Date(),
         updatedAt: new Date()
       });
     };
-    await queryInterface.bulkInsert('Organizations', data);
+    await queryInterface.bulkInsert('Posts', data);
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Organizations', null, {});
+    await queryInterface.bulkDelete('Posts', null, {});
   }
+
 };

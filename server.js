@@ -4,6 +4,7 @@ const sequelize = require('./database/db');
 const router = require('./routes/routes')(express, sequelize);
 const app = express();
 
+app.use(express.json())
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 // definir rotas

@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Organization',
     paranoid: true,
-    deletedAt: 'destroyTime'
+    deletedAt: 'deletedAt'
   });
   return Organization;
 };
