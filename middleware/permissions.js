@@ -1,17 +1,19 @@
 const permissionsMiddleware = (req, res, next) => {
 
-    // verifica se o usuário está autenticado
-    if (!req.user) {
-        return res.status(401).json({ error: 'Unauthorized' });
-    }
+    try {
+        if (!req.userId) {
+            throw new Error('Forbidden');
+        }
 
-    if (req.method.toLocaleLowerCase() in req.user.permissions.method
-        && req.user.permissions.method[req.method.toLocaleLowerCase()] === true) {
-        // prossegue para a próxima rota se o usuário tiver as permissões necessárias
-        next();
-    } else {
-        return res.status(403).json({ error: 'Forbidden' });
+        if (req.userPermissions.method[req.method.toLocaleLowerCase()] === true) {
+            next();
+        } else {
+            throw new Error('Forbidden');
+        }
+
+    } catch (error) {
+        res.status(403).json({ error: error.message })
     }
-};
+}
 
 module.exports = permissionsMiddleware;

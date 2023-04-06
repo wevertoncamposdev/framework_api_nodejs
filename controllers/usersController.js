@@ -1,5 +1,5 @@
 const { where } = require('sequelize');
-const db = require('../models');
+const { User } = require('../models');
 const { v4: uuidv4 } = require('uuid');
 
 class UserController {
@@ -11,7 +11,7 @@ class UserController {
      * @returns res.json(data)
      */
     async index(req, res) {
-        const data = await db.User.findAll();
+        const data = await User.findAll();
         res.status(200).json(data);
     }
     
