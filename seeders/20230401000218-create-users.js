@@ -36,7 +36,7 @@ module.exports = {
         updatedAt: new Date()
       });
     };
-    fs.appendFile('./passwords.json', JSON.stringify(Object.fromEntries(pass)), ()=>{console.log('Arquivos Salvo!')});
+    fs.appendFile('./config/passwords.json', JSON.stringify(Object.fromEntries(pass)), ()=>{console.log('Arquivos Salvo!')});
     await queryInterface.bulkInsert('users', data);
   },
 
