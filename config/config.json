@@ -1,23 +1,29 @@
 {
   "development": {
-    "username": "root",
-    "password": "password",
-    "database": "test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "kzdzfabkvt14az6s89uo",
+    "password": "pscale_pw_csltFbtNQ3YJht2v0lYrTE3fJqjObRLy4rKtwyH4mIZ",
+    "database": "development",
+    "host": "aws.connect.psdb.cloud",
+    "dialect": "mysql",
+    "ssl": true,
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+    }
   },
   "test": {
-    "username": "root",
-    "password": "password",
-    "database": "test",
-    "host": "127.0.0.1",
+    "username": "kzdzfabkvt14az6s89uo",
+    "password": "pscale_pw_csltFbtNQ3YJht2v0lYrTE3fJqjObRLy4rKtwyH4mIZ",
+    "database": "development",
+    "host": "aws.connect.psdb.cloud",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "password",
-    "database": "test",
-    "host": "127.0.0.1",
+    "username": "kzdzfabkvt14az6s89uo",
+    "password": "pscale_pw_csltFbtNQ3YJht2v0lYrTE3fJqjObRLy4rKtwyH4mIZ",
+    "database": "development",
+    "host": "aws.connect.psdb.cloud",
     "dialect": "mysql"
   }
 }

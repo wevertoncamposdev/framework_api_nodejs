@@ -22,10 +22,10 @@ module.exports = {
         updatedAt: new Date()
       });
     };
-    await queryInterface.bulkInsert('Organizations', data);
+    await queryInterface.bulkInsert('organizations', data);
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Organizations', null, {});
+    await queryInterface.bulkDelete('organizations', null, {});
   }
 };
