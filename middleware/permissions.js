@@ -15,5 +15,4 @@ const permissionsMiddleware = (req, res, next) => {
         res.status(403).json({ error: error.message })
     }
 }
-
 module.exports = permissionsMiddleware;

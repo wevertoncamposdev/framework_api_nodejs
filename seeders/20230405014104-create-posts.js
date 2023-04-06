@@ -7,7 +7,7 @@ const { faker } = require('@faker-js/faker'); // https://fakerjs.dev/guide/usage
 module.exports = {
   async up (queryInterface, Sequelize) {
     const data = [];
-    const users = await queryInterface.sequelize.query('SELECT id FROM users');
+    const users = await queryInterface.sequelize.query('SELECT id FROM Users');
     for (let i = 0; i < 120; i++) {
       data.push({
         id: uuidv4(),
@@ -19,11 +19,11 @@ module.exports = {
         updatedAt: new Date()
       });
     };
-    await queryInterface.bulkInsert('posts', data);
+    await queryInterface.bulkInsert('Posts', data);
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('posts', null, {});
+    await queryInterface.bulkDelete('Posts', null, {});
   }
 
 };

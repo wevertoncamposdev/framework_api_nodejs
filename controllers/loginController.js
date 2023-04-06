@@ -1,5 +1,5 @@
 const { where } = require('sequelize');
-const db = require('../models');
+const { User }= require('../models');
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -25,12 +25,11 @@ class loginController {
     */
     async login(req, res) {
 
-        // Recupera as credenciais do usuário a partir da requisição
+        // Recupera as credenciais do usuário a partir da requisição { var, var} Destruction
         const { email, password } = req.body;
 
-
         // Busca o usuário com o e-mail fornecido no banco de dados
-        const user = await db.User.findOne({ where: { email } });
+        const user = await User.findOne({ where: { email } });
 
         // Se o usuário não for encontrado, retorna uma resposta de erro
         if (!user) {

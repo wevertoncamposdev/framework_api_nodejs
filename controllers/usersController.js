@@ -30,13 +30,15 @@ class UserController {
      */
     async show(req, res) {
 
-        const keys = Object.keys(req.query);
+        const { id } = req.body;
 
-        if (!keys[0]) {
-           return res.status(404).json('Insira um valor para pesquisa!');
-        }
+        // const keys = Object.keys(req.query);
 
-        const data = await db.User.findOne({ where: { [keys[0]]: req.query[keys[0]] } });
+        // if (!keys[0]) {
+        //    return res.status(404).json('Insira um valor para pesquisa!');
+        // }
+
+        const data = await User.findOne({ where: { id: id } });
         res.status(200).json(data);
     }
 
@@ -52,7 +54,7 @@ class UserController {
         };
 
         req.body.id = uuidv4(); // create uuid
-        const data = await db.User.create(req.body) // insert body request
+        const data = await User.create(req.body) // insert body request
         res.json(data);
     }
 
@@ -67,7 +69,7 @@ class UserController {
             return res.status(404).json('Insira um valores para criar!');
         };
 
-        const data = await db.User.update(req.body, {where: {id:req.body.id}})
+        const data = await User.update(req.body, {where: {id:req.body.id}})
         res.json(data);
     }
 
@@ -81,7 +83,7 @@ class UserController {
         if(Object.keys(req.body).length === 0){
             return res.status(404).json('Insira um valores para criar!');
         };
-        const data = await db.User.destroy({where: {id:req.body.id}}) // update body request
+        const data = await User.destroy({where: {id:req.body.id}}) // update body request
         res.json(data);
     }
 }

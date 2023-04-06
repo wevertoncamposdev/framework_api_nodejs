@@ -37,10 +37,10 @@ module.exports = {
       });
     };
     fs.appendFile('./config/passwords.json', JSON.stringify(Object.fromEntries(pass)), ()=>{console.log('Arquivos Salvo!')});
-    await queryInterface.bulkInsert('users', data);
+    await queryInterface.bulkInsert('Users', data);
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('users', null, {});
+    await queryInterface.bulkDelete('Users', null, {});
   }
 };
